@@ -23,14 +23,14 @@ public class OtherLineCountUtil {
 				//统计/*的注释行
 				if(inNoteLine==true) {
 					noteLine++;
-					if(sentence.endsWith("*/")&&sentence.endsWith("*/}"))
+					if(sentence.endsWith("*/")||sentence.endsWith("*/}"))
 						inNoteLine=false;
 					continue;
 					
 				}
-				if(sentence.startsWith("/*")||sentence.startsWith("{/*")||inNoteLine==true) {
+				if(sentence.startsWith("/*")||sentence.startsWith("{/*")) {
 					noteLine++;
-					if(!sentence.endsWith("*/")&&!sentence.endsWith("*/}"))
+					if(!sentence.endsWith("*/")||!sentence.endsWith("*/}"))
 						inNoteLine=true;
 					continue;
 				}
@@ -40,7 +40,7 @@ public class OtherLineCountUtil {
 					continue;
 				}
 				//空行的统计
-				if(sentence.equals("")||sentence.equals("{")||sentence.equals("}")) {
+				if(sentence.equals("")||sentence.equals("{")||sentence.equals("}")||sentence.equals(" ")) {
 					emptyLine++;
 					continue;
 				}

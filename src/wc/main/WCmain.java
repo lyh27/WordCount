@@ -44,6 +44,7 @@ public class WCmain {
 						System.out.println("行数为:" + LineCountUtil.LineCount(filenames.get(i)));
 						System.out.println("代码行/空行/注释行:" + OtherLineCountUtil.OtherLineCount(filenames.get(i)));
 					}
+					break;
 				default:
 					System.out.println("您的输入有误,请重新输入");
 			}
